@@ -1,16 +1,13 @@
-<?xml version='1.0' encoding='utf-8'?> <!-- denomina que es XML -->
-<!-- el id es el dominio pero invertido con el nombre al final
-     la version es de la app -->
-<widget id="tk.movivet" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Movivet</name> <!-- Nombre de la APP -->
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="net.greensnacks.consejos" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Movivet</name> <!-- nombre de la app, lo que aparece en el celu -->
     <description>
-       Movivet App <!-- Descripcion en phonegap, si no se especifica otra en el appleStore o googleStore, va a aparecer esta descripcion -->
+        Veterinaria Móvil a domicilio.
     </description>
-    <author email="essteffi@hotmail.com" href="http://www.movivet.tk"> <!-- datos de contacto del autor -->
-        Estefanía De Angelis
+    <author email="essteffi@hotmail.com" href="http://movivet.tk"><!-- mail y sitio del creador de la app-->
+        Hernan Beati
     </author>
-    
-        <preference name="permissions" value="none" />
+    <preference name="permissions" value="none" />
     <preference name="phonegap-version" value="3.7.0" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
@@ -30,10 +27,10 @@
     <preference name="SplashScreen" value="foo" />
 	<preference name="SplashScreenDelay" value="10000" />
 		
+	<gap:plugin name="com.admob.google" source="plugins.cordova.io" version="3.7.0"/>
+	<gap:plugin name="org.apache.cordova.splashscreen" spec="1.0.0" source="pgb" />
 		
-<!--	<gap:plugin name="org.apache.cordova.splashscreen" spec="1.0.0" source="pgb" />-->
-		
-    <!--<gap:plugin name="org.apache.cordova.device-orientation" />--><!--plugins en la pag de phonegap, la direccion que poner segun el plugin-->
+    <gap:plugin name="org.apache.cordova.device-orientation" /><!--plugins en la pag de phonegap, la direccion que poner segun el plugin-->
     
     <icon src="icon.png" /><!--icono de la app con sus variantes de resolucion de icono, tmb por plataforma http://pgicons.abiro.com/ subir la img y te arma los iconos descomprimir rar en la carpeta de la app. la carpeta res-->
     <icon gap:platform="android" gap:qualifier="ldpi" src="res/icon/android/icon-36-ldpi.png" />
