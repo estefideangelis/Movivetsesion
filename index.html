@@ -71,20 +71,20 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
 
 <center> <div id="home" data-role="page" data-theme="c">
 
+
+
  <div id="loguin">
 <div id="content" class="content">
-<form  id="formulario">
+<form  id="formulario" method="post" onSubmit="return validar();">
 <center><h2>INICIAR SESIÓN</h2></center>
-
-<input type="text" placeholder="Usuario:" class="user-black" id="nombredeusuario" name="nombredeusuario" data-theme="c required">
-<input type="password" class="lock-black" placeholder="Contraseña" id="clave" name="clave" data-theme="c" required>
-</br><input type="submit" id="botonLogin" >
-
+<div class="contenedor-inputs1">
+<label class="ui-hidden-accessible">Usuario:</label>
+<input type="text" placeholder="Usuario:" class="user-black" id="nombreUsuario" name="nombreUsuario" data-theme="c required">
+<label class="ui-hidden-accessible">Contraseña:</label><input type="password" class="lock-black" placeholder="Contraseña" id="password" name="password" data-theme="c" required>
+<input type="submit" value="Iniciar Sesión" id="botonLogin">
+<center><a href="http://www.movivet.tk/registro.php">Registrarme</a></center>
+</div>
 </form>
-<div id="datos_inc" class="datos_inc" style="color:#000000; padding-top: 1em"></div>
-			<p>¿No tienés una cuenta? <a href="http://movivet.tk/registro.php">Registrate</a></p>
-            
-            </div>
 
 		</div></div</center>
 
@@ -105,9 +105,13 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
 
 </div>
 
-<div data-role="page" id="datos_inc"></div>
+
 -->
 <!--PAGINA INICIO SESIÓN -->
+
+<div data-role="page" id="datos_inc">
+<p>Esos datos son incorrectos</p>
+</div>
 
 <div id="inicio1" data-role="page" data-theme="c">
 <div data-role="header" data-theme="c">
@@ -371,8 +375,8 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
 
 // *.. Autenticacion del formulario ..*
 	$('#formulario').submit(function() {
-		var datosUsuario = $("#nombredeusuario").val()    // tomo lo que esta en el input de usuario
-		var datosPassword = $("#clave").val()             // tomo lo que esta en el input de password
+		var datosUsuario = $("#nombreUsuario").val()    // tomo lo que esta en el input de usuario
+		var datosPassword = $("#password").val()             // tomo lo que esta en el input de password
 		
 	  	archivoValidacion = "http://movivet.tk/validacion_de_datos2.php?jsoncallback=?" // url del archivo php que busca en la db
 
