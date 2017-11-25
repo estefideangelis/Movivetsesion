@@ -8,6 +8,15 @@
 <script src="jquery.mobile-1.4.5.min.js"></script>
  
 
+<!-- NINNN -->
+ <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+           <!-- <script type="text/javascript" src="js/cordova.js"></script>-->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/jquery-1.12.2.min.js"></script>
+<script type="text/javascript" src="http://www.ajax-cross-domain.com/cgi-bin/ACD/ACD.js?uri=(http://216.92.176.52/?name=john)"></script>
+<!-- NINNNN -->
 
 <!--<script src="jquery-1.12.2.min.js"></script>
 <script src="jquery.mobile-1.4.5.min.js"></script>
@@ -45,8 +54,8 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
 
 
 
-<div class="content" id="presentacion" data-role="page" data-theme="c">
-<center><a href="#inicio1"><img src="images/presentacion.png" style="width:100%;"/></a></center>
+<!--<div class="content" id="presentacion" data-role="page" data-theme="c">
+<center><a href="#loguin"><img src="images/presentacion.png" style="width:100%;"/></a></center>
 </div>
 
 <div class="content" id="presentacion1" data-role="page" data-theme="c">
@@ -55,9 +64,37 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
 			<img src="images/presentacion1.png" style="width:100%;">
 			<a href="#" class="ui-btn ui-corner-all" id="intentarNuevamente">Intentar Nuevamente</a>
 	</div>
-</div>
+</div>-->
 
-<div data-role="page" id="home">
+
+<!--PAGINA INICIO SESIÓN FORMULARIO-->
+
+<center> <div id="home" data-role="page" data-theme="c">
+
+
+
+ <div id="loguin">
+<div id="content" class="content">
+<form  id="formulario" method="post" onSubmit="return validar();">
+<center><h2>INICIAR SESIÓN</h2></center>
+<div class="contenedor-inputs1">
+<label class="ui-hidden-accessible">Usuario:</label>
+<input type="text" placeholder="Usuario:" class="user-black" id="nombreUsuario" name="nombreUsuario" data-theme="c required">
+<label class="ui-hidden-accessible">Contraseña:</label><input type="password" class="lock-black" placeholder="Contraseña" id="password" name="password" data-theme="c" required>
+<input type="submit" value="Iniciar Sesión" id="botonLogin">
+<div id="datos_inc" class="datos_inc" style="color:#000000; padding-top: 1em"></div>
+			<p>¿No tienés una cuenta? <a href="#">Registrate</a></p>
+            
+            </div>
+</div>
+</form>
+
+		</div></div></center>
+
+<!--PAGINA INICIO SESIÓN FORMULARIO-->
+
+
+<!--<div data-role="page" id="home1">
 
 	<div data-role="header">
 		<h1>Bienvenido</h1>
@@ -71,9 +108,10 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
 
 </div>
 
-<div data-role="page" id="datos_inc"></div>
 
+-->
 <!--PAGINA INICIO SESIÓN -->
+
 
 <div id="inicio1" data-role="page" data-theme="c">
 <div data-role="header" data-theme="c">
@@ -333,6 +371,47 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="app_movivet.js"></script>
 
+<script>
+
+// *.. Autenticacion del formulario ..*
+	$('#formulario').submit(function() {
+		alert("entro");
+		var datosUsuario = $("#nombreUsuario").val()    // tomo lo que esta en el input de usuario
+		var datosPassword = $("#password").val()             // tomo lo que esta en el input de password
+		
+	  	archivoValidacion = "http://movivet.tk/app/validacion_de_datos2.php?jsoncallback=?" // url del archivo php que busca en la db
+
+		$.getJSON(archivoValidacion,{usuario:datosUsuario ,password:datosPassword})
+        .done(function(respuestaServer) {
+			
+			$mensa = respuestaServer.mensaje;             // tomo los mensajes que devuelve el php
+
+            if(respuestaServer.validacion == "ok") {
+			               
+               alert("entro a ingreso");
+                            ingreso();
+                      
+                
+             
+            } else {
+                $('#datos_inc').append(respuestaServer.mensaje);
+				$('#datos_inc').append(respuestaServer.mensaje);
+            }
+        })
+		return false;
+	});
+	
+	 $aide = localStorage.getItem("id");
+	
+	  function ingreso() {
+		   
+     alert('Redirecionando a http://www.elcodigofuente.com/');
+    
+/*    document.getElementById("loguin").remove();*/
+
+	   document.getElementById("inicio1").innerHTML="";
+	       };
+</script>
 
 
 
