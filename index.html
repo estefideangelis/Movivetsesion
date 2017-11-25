@@ -383,34 +383,26 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
 
 		$.getJSON(archivoValidacion,{usuario:datosUsuario ,password:datosPassword})
         .done(function(respuestaServer) {
-			
+			alert("entro2");
 			$mensa = respuestaServer.mensaje;             // tomo los mensajes que devuelve el php
 
             if(respuestaServer.validacion == "ok") {
 			               
-               alert("entro a ingreso");
-                            ingreso();
+              /// si la validacion es correcta, muestra la pantalla "home"
+			$.mobile.changePage("#inicio1")
                       
                 
              
             } else {
                 $('#datos_inc').append(respuestaServer.mensaje);
-				$('#datos_inc').append(respuestaServer.mensaje);
+				
             }
         })
 		return false;
 	});
 	
-	 $aide = localStorage.getItem("id");
-	
-	  function ingreso() {
-		   
-     alert('Redirecionando a http://www.elcodigofuente.com/');
-    
-/*    document.getElementById("loguin").remove();*/
 
-	   document.getElementById("inicio1").innerHTML="";
-	       };
+	
 </script>
 
 
